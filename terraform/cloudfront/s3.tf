@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "frontend" {
   tags = {
     Name    = var.bucket_frontend
     Project = var.project_name
-    Terraform = True
+    Terraform = true
   }
 }
 

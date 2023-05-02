@@ -7,7 +7,7 @@ resource "aws_acm_certificate" "cert" {
 
   tags = {
     Project = var.project_name
-    Terraform = True
+    Terraform = true
   }
 
   lifecycle {
