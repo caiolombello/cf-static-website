@@ -1,6 +1,6 @@
 # projeto
 variable "project_name" {
-  default     = "portfolio"
+  default     = "caio.lombello.com"
   type        = string
   description = "Projeto de automação da infraestrutura para Portfólio estático."
 }
@@ -14,7 +14,7 @@ variable "aws_region" {
 
 # s3
 variable "bucket_frontend" {
-  default     = "portfolio-static-files" 
+  default     = "caio.lombello.com-static-files-prd" 
   type        = string
   description = "Bucket de arquivos estáticos."
 }
