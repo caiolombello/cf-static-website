@@ -27,3 +27,7 @@ resource "aws_s3_bucket_object" "all_files" {
   etag          = filemd5("website/src/${each.value}")
   content_type  = lookup(local.mime_types, replace(each.value, "/.*\\.(.+)$/", "$1"), "binary/octet-stream")
 }
+
+output "all_files" {
+  value = [for f in aws_s3_bucket_object.all_files : f.key]
+}
