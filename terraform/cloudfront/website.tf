@@ -1,3 +1,23 @@
+locals {
+  mime_types = {
+    "css"  = "text/css"
+    "html" = "text/html"
+    "js"   = "application/javascript"
+    "png"  = "image/png"
+    "jpg"  = "image/jpeg"
+    "jpeg" = "image/jpeg"
+    "gif"  = "image/gif"
+    "ico"  = "image/x-icon"
+    "svg"  = "image/svg+xml"
+    "json" = "application/json"
+    "woff" = "font/woff"
+    "woff2" = "font/woff2"
+    "ttf"  = "font/ttf"
+    "otf"  = "font/otf"
+    "eot"  = "application/vnd.ms-fontobject"
+  }
+}
+
 resource "aws_s3_bucket_object" "all_files" {
   for_each = fileset("website/src/", "**/*")
 
