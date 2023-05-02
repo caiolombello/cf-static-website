@@ -12,6 +12,6 @@ variable "resource_tags" {
   default = {
     Environment = "prd",
     Terraform   = "true"
-    Name        = "portfolio"
+    Name        = "caio.lombello.com"
   }
 }
