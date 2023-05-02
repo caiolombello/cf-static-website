@@ -6,7 +6,7 @@ data "aws_route53_zone" "domain" {
 # configuracao dos records para o cloudFront
 resource "aws_route53_record" "cf_distribution" {
   zone_id = data.aws_route53_zone.domain.zone_id
-  name    = data.aws_route53_zone.domain.name
+  name    = "caio.${data.aws_route53_zone.domain.name}"
   type    = "A"
 
   alias {
@@ -19,7 +19,7 @@ resource "aws_route53_record" "cf_distribution" {
 # configuracao dos records para o cloudFront IPV6
 resource "aws_route53_record" "cf_distribution_ipv6" {
   zone_id = data.aws_route53_zone.domain.zone_id
-  name    = data.aws_route53_zone.domain.name
+  name    = "caio.${data.aws_route53_zone.domain.name}"
   type    = "AAAA"
 
   alias {
