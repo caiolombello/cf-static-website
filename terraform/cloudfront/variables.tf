@@ -22,7 +22,7 @@ variable "bucket_frontend" {
 
 # route 53
 variable "zone_name" {
-  default     = "lombello.com."
+  default     = "lombello.com"
   type        = string
   description = "Zona Route 53."
 }
