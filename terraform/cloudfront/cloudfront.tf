@@ -84,7 +84,7 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
 
   tags = {
     Project = var.project_name
-    Terraform = True
+    Terraform = true
   }
 
   depends_on = [aws_acm_certificate_validation.domain]
