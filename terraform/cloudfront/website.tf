@@ -19,14 +19,15 @@ locals {
 }
 
 resource "aws_s3_bucket_object" "all_files" {
-  for_each = { for f in fileset("website/src/", "**/*") : f => f }
+  for_each = fileset("website/src/", "**/*")
 
   bucket        = aws_s3_bucket.frontend.bucket
-  key           = each.key
-  source        = "website/src/${each.key}"
-  etag          = filemd5("website/src/${each.key}")
-  content_type  = lookup(local.mime_types, regex(".*\\.(.+)$", each.key), "binary/octet-stream")
+  key           = each.value
+  source        = "website/src/${each.value}"
+  etag          = filemd5("website/src/${each.value}")
+  content_type  = lookup(local.mime_types, element(regexall(".*\\.(.+)$", each.value), 0), "binary/octet-stream")
 }
+
 
 output "all_files" {
   value = [for f in aws_s3_bucket_object.all_files : f.key]
