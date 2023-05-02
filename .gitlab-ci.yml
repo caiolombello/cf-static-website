@@ -30,7 +30,7 @@ remote-state-apply:
   before_script:
     - terraform -chdir=terraform/remote-state-lock init
   script:
-    - terraform -chdir=terraform/remote-state-lock apply -auto-approve planfile
+    - terraform -chdir=terraform/remote-state-lock apply -auto-approve remote-state-planfile
   artifacts:
     paths:
       - remote-state-planfile
