@@ -34,6 +34,8 @@ remote-state-apply:
   artifacts:
     paths:
       - remote-state-planfile
+  needs:
+  - job: remote-state-plan
   when: manual
 
 remote-state-destroy:
@@ -43,6 +45,8 @@ remote-state-destroy:
     - terraform -chdir=terraform/remote-state-lock init
   script:
     - terraform -chdir=terraform/remote-state-lock destroy -auto-approve
+  needs:
+  - job: remote-state-apply
   when: manual
 
 cloudfront-plan:
@@ -63,6 +67,8 @@ cloudfront-apply:
     - terraform -chdir=terraform/cloudfront init
   script:
     - terraform -chdir=terraform/cloudfront apply -auto-approve cloudfront-planfile
+  needs:
+  - job: cloudfront-plan
   when: manual
 
 cloudfront-destroy:
@@ -72,4 +78,6 @@ cloudfront-destroy:
     - terraform -chdir=terraform/cloudfront init
   script:
     - terraform -chdir=terraform/cloudfront destroy -auto-approve
+  needs:
+  - job: cloudfront-apply
   when: manual
