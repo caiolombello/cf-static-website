@@ -1,7 +1,6 @@
 stages:
-  - plan
-  - apply
-  - destroy
+  - remote-state
+  - cloudfront
 
 .terraform:
   image: 
@@ -9,28 +8,65 @@ stages:
     entrypoint:
       - '/bin/sh'
       - '-c'
-  before_script:
-    - terraform init
 
-plan:
+remote-state-plan:
   extends: .terraform
-  stage: plan
+  stage: remote-state
+  before_script:
+    - terraform -chdir=terraform/remote-state-lock init
   script:
-    - terraform plan -out=planfile
+    - terraform -chdir=terraform/remote-state-lock plan -out=remote-state-planfile
   artifacts:
     paths:
-      - planfile
-
-apply:
-  extends: .terraform
-  stage: apply
-  script:
-    - terraform apply -auto-approve planfile
+      - remote-state-planfile
   when: manual
 
-destroy:
+remote-state-apply:
   extends: .terraform
-  stage: destroy
+  stage: remote-state
+  before_script:
+    - terraform -chdir=terraform/remote-state-lock init
   script:
-    - terraform destroy -auto-approve
+    - terraform -chdir=terraform/remote-state-lock apply -auto-approve planfile
+  artifacts:
+    paths:
+      - remote-state-planfile
+  when: manual
+
+remote-state-destroy:
+  extends: .terraform
+  stage: remote-state
+  before_script:
+    - terraform -chdir=terraform/remote-state-lock init
+  script:
+    - terraform -chdir=terraform/remote-state-lock destroy -auto-approve
+  when: manual
+
+cloudfront-plan:
+  extends: .terraform
+  stage: cloudfront
+  before_script:
+    - terraform -chdir=terraform/cloudfront init
+  script:
+    - terraform -chdir=terraform/cloudfront plan -out=cloudfront-planfile
+  artifacts:
+    paths:
+      - cloudfront-planfile
+
+cloudfront-apply:
+  extends: .terraform
+  stage: cloudfront
+  before_script:
+    - terraform -chdir=terraform/cloudfront init
+  script:
+    - terraform -chdir=terraform/cloudfront apply -auto-approve cloudfront-planfile
+  when: manual
+
+cloudfront-destroy:
+  extends: .terraform
+  stage: cloudfront
+  before_script:
+    - terraform -chdir=terraform/cloudfront init
+  script:
+    - terraform -chdir=terraform/cloudfront destroy -auto-approve
   when: manual
