@@ -18,10 +18,7 @@ remote-state-plan:
   before_script:
     - terraform -chdir=terraform/remote-state-lock init
   script:
-    - terraform -chdir=terraform/remote-state-lock plan -out=remote-state-planfile
-  artifacts:
-    paths:
-      - remote-state-planfile
+    - terraform -chdir=terraform/remote-state-lock plan
   when: manual
 
 remote-state-apply:
@@ -30,10 +27,7 @@ remote-state-apply:
   before_script:
     - terraform -chdir=terraform/remote-state-lock init
   script:
-    - terraform -chdir=terraform/remote-state-lock apply -auto-approve remote-state-planfile
-  artifacts:
-    paths:
-      - remote-state-planfile
+    - terraform -chdir=terraform/remote-state-lock apply -auto-approve
   needs:
   - job: remote-state-plan
   when: manual
@@ -55,10 +49,7 @@ cloudfront-plan:
   before_script:
     - terraform -chdir=terraform/cloudfront init
   script:
-    - terraform -chdir=terraform/cloudfront plan -out=cloudfront-planfile
-  artifacts:
-    paths:
-      - cloudfront-planfile
+    - terraform -chdir=terraform/cloudfront plan
 
 cloudfront-apply:
   extends: .terraform
@@ -66,7 +57,7 @@ cloudfront-apply:
   before_script:
     - terraform -chdir=terraform/cloudfront init
   script:
-    - terraform -chdir=terraform/cloudfront apply -auto-approve cloudfront-planfile
+    - terraform -chdir=terraform/cloudfront apply -auto-approve
   needs:
   - job: cloudfront-plan
   when: manual
