@@ -43,7 +43,6 @@ resource "aws_s3_bucket_object" "img" {
   source       = "../../website/src/assets/images/${each.value}"
   etag         = filemd5("../../website/src/assets/images/${each.value}")
   content_type = lookup(local.image_content_types, lower(regex("\\.(.+)$", each.value)[0]), "binary/octet-stream")
-  acl    = "public-read"
 }
 
 # en
