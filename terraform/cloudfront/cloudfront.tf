@@ -8,22 +8,25 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
   is_ipv6_enabled     = true
   comment             = aws_s3_bucket.frontend.bucket_domain_name
   default_root_object = "index.html"
-  aliases             = ["${var.zone_name}","*.${var.zone_name}"]  # zona  da route 53
-                        
+  aliases             = ["${var.zone_name}", "*.${var.zone_name}"] # zona  da route 53
+
 
   viewer_certificate {
-    acm_certificate_arn      = aws_acm_certificate.cert.arn
-    ssl_support_method       = "sni-only"
+    acm_certificate_arn = aws_acm_certificate.cert.arn
+    ssl_support_method  = "sni-only"
   }
 
   restrictions {
     geo_restriction {
       restriction_type = "whitelist"
-      locations        = ["BR", "US"]
+      locations = [
+        "BR", "US", "AR", "CL",       # Brasil, Estados Unidos, Argentina, Chile
+        "GB", "FR", "DE", "ES", "IT", # Reino Unido, França, Alemanha, Espanha, Itália
+        "NL", "SE", "FI", "DK", "IE", # Países Baixos, Suécia, Finlândia, Dinamarca, Irlanda
+        "CH", "NO", "BE", "AT", "PL"  # Suíça, Noruega, Bélgica, Áustria, Polônia
+      ]
     }
   }
-
-
 
   # bucket S3
   origin {
@@ -61,7 +64,7 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = aws_s3_bucket.frontend.id
-    compress         = false
+    compress         = true
 
     forwarded_values {
       cookies {
@@ -82,10 +85,37 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
 
   }
 
+  ordered_cache_behavior {
+    path_pattern     = "/en.html"
+    allowed_methods  = ["GET", "HEAD"]
+    cached_methods   = ["GET", "HEAD"]
+    target_origin_id = aws_s3_bucket.frontend.id
+    compress         = true
+
+    forwarded_values {
+      cookies {
+        forward           = "none"
+        whitelisted_names = []
+      }
+
+      headers                 = []
+      query_string            = false
+      query_string_cache_keys = []
+    }
+
+    viewer_protocol_policy = "redirect-to-https"
+    min_ttl                = 0
+    default_ttl            = 3600
+    max_ttl                = 86400
+    smooth_streaming       = false
+  
+  }
+
   tags = {
-    Project = var.project_name
+    Project   = var.project_name
     Terraform = true
   }
 
   depends_on = [aws_acm_certificate_validation.domain]
 }
+

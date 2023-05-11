@@ -1,0 +1,102 @@
+/*//////////////////////ARTIGOS///////////////////////*/
+#artigos
+{
+  background: linear-gradient(to right, rgba(3, 0, 153, 0.438), rgba(3, 1, 92, 0.582)), url('artigos.jpg');
+  background-size: cover;
+  width:100%;
+  height:100%;
+}
+.artigos
+{
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+.nxt-btn-artigos,
+.pre-btn-artigos
+{
+ display: none;
+}
+/*
+  width:100%;
+  height:100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  /*
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+}
+.artigos-text
+{
+  text-align: center;
+  width:100%;
+  font-size: 2.5vw;
+  margin-top:60px;
+}
+.main-container-artigos
+{
+  width:100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.artigos-column
+{
+  width:250px;
+  height:60vh;
+  background:linear-gradient(to right, rgb(230, 230, 230), rgb(255, 255, 255));
+  margin:3%;
+  border-radius: 12px;
+}
+.artigos-titulo
+{ margin-top: 15px;
+  width:100%;
+  text-align: center;
+  font-size:12px;
+  padding: 0 5px;
+
+}
+.artigos-img
+{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  height:auto;
+}
+.artigos-img img
+{
+  width:100%; 
+  height:140px;
+  border-radius: 12px;
+}
+.artigos-titulo h2
+{
+  color:#000;
+}
+.artigos-info
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width:100%;
+  height:auto;
+  align-items: center;
+  text-align:center;
+  color:#000;
+
+}
+.artigos-info p
+{
+  color:#000;
+  
+}
+*/

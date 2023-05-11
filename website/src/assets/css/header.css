@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400&display=swap');
+html
+{
+  scroll-behavior: smooth;
+}
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Urbanist', sans-serif;
+  color:#fff;
+}
+
+     /* Personalizar a barra de rolagem para navegadores baseados em WebKit (Chrome, Safari, etc.) */
+     ::-webkit-scrollbar {
+      width: 8px;
+      background-color: #333;
+      }
+
+      ::-webkit-scrollbar-thumb {
+      background-color: #555;
+      border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+      background-color: #777;
+      }
+
+      /* Personalizar a barra de rolagem para o Firefox */
+      body {
+      scrollbar-width: thin;
+      scrollbar-color: #555 #333;
+      }
+
+/* header ////////////////////////////////////////// */
+header
+{
+  height:100%;
+  width: 100%;
+  align-items:center;
+  text-align:center;
+  background-image:linear-gradient(to right, #252325c2, #0817e77a), url('hero.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  
+}
+/* nav bar /////////////////////////////////////////////////////// */
+nav 
+{
+  width: 100%;
+  display:flex;
+ 
+  position:relative;
+  align-items: center;
+  position: fixed;
+  z-index: 9999;
+}
+.nav-colored { background-color:#00054d;
+  transition: background-color 200ms linear; }
+.nav-transparent { background-color:transparent;
+  transition: background-color 200ms linear;}
+.logo
+{ height:6vw;
+  width:20%;
+  display:flex;
+  justify-content: center;
+  margin-top: 10px;
+  
+  
+}
+
+
+/*Nav menu items //////////////////////*/
+.main-menu
+{ width:80%;
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top:10px;
+  
+
+}
+ul li
+{
+  list-style: none;
+}
+.main-menu li a 
+{
+  font-size: 1.5vw;
+  font-weight: 700;
+  text-decoration: none;
+}
+ul li a
+{
+  opacity: 0.9;
+}
+.main-menu li a:hover,
+.social-links li a:hover {
+  opacity:1;
+}
+.social-links
+{
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+.social-links li a 
+{
+  font-size: 1.8vw;
+  margin:1.8em;
+}
+.hamburger
+{
+  display:none;
+  width:30px;
+  appearance: none;
+  background: none;
+  outline: none;
+  border:none;
+  cursor:pointer;
+  position: relative;
+  left:90%;
+  position: absolute;
+
+}
+.hamburger .bar, .hamburger::after, .hamburger::before
+{content: '';
+  display: block;
+  width:100%;
+  height:3px;
+  background-color: #fff;
+  margin:6px 0px;
+  transition: 0.4s;
+
+}
+.hamburger.is-active::before
+{
+transform:rotate(-45deg) translate(-6px, 6px);
+}
+.hamburger.is-active .bar
+{
+opacity:0;
+}
+.hamburger.is-active::after
+{
+transform:rotate(45deg) translate(-6px, -7px);
+}
+.nav-mobile
+{
+  display: block;
+  position: fixed;
+  top:0;
+  left:100%;
+  width:100%;
+  height:100vh;
+  z-index: 98;
+  background-color:#00054d;
+  padding-top:120px;
+  transition: 0.4s;
+}
+.nav-mobile a 
+{
+  display: block;
+  width:100%;
+  max-width: 200px;
+  margin:0 auto 16px;
+  text-align: center;
+  padding:12px 16px;
+  background-color:#080e68;
+  color:#ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.nav-mobile a:hover
+{
+  background-color: #141d9b;
+  transition: .3s ease;
+}
+.nav-mobile.is-active 
+{
+  left:0;
+}
+/*header title////////////////*/
+.devops
+{
+  width:100%;
+  position: absolute;
+  top:30%;
+  text-align: center;
+}
+.devops img
+{
+  border-radius: 50%;
+  height:150px;
+}
+
+.devops h1{
+font-size:4vw;
+}
+.devops h2
+{
+  font-size:3vw;
+}
+.animation
+{
+
+  animation: textFade 1.2s ease;
+}
+@keyframes textFade 
+{ 
+  0%
+  {
+    opacity:0;
+    transform:translateY(15px);
+  }
+
+  100%
+  {
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+/* CSS para Título das Porcentagens
+.skill-per .tooltip
+{
+  position: absolute;
+  right:-14px;
+  top:-28px;
+  font-size:1.1vw;
+  font-weight:500;
+  color:#fff;
+  padding:2px 6px;
+  border-radius: 3px;
+  background:#4070f4;
+  z-index: 1;
+}
+.tooltip::before
+{
+  content:'';
+  position:absolute;
+  left:50%;
+  bottom:-2px;
+  height:10px;
+  width:10px;
+  z-index:-1;
+  background-color:#4070f4;
+  transform:translateX(-50%) rotate(45deg);
+}
+
+
+
+
+
+
+

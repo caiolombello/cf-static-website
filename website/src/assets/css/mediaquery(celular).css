@@ -1,0 +1,186 @@
+/*media queries(CELULAR)/////////////////////////*/
+@media (max-width:768px)
+{
+  /*//////////////HEADER////////////////////////*/
+  .devops h1
+  {
+    font-size:7vw !important;
+  }
+  .devops h2
+  {
+    font-size:5vw !important;
+  }
+  .devops .social-links li a
+  {
+    font-size: 20px;
+    margin:20px;
+  }
+  ul li a 
+  {
+    font-size: 3vw;
+  }
+  .main-menu
+  {
+    display: none;
+  }
+  .logo
+  {
+   left:15%;
+   height: 70px !important;
+  }
+ .nav
+ {
+
+ width:100%;
+ justify-content: space-between;
+ height:10%;
+ }
+ .hamburger
+ {
+  display:block;
+ }
+  header
+  {
+    background-image: linear-gradient(to right, #252325c2, #0817e77a), url('hero\(cellphone\).jpg');
+    background-size: cover;
+  }
+
+  /*////////////////////HABILIDADES////////////////////////*/
+  .skills-text
+  {
+    font-size:5vw;
+  }
+  .skill-box .skill-title
+  {
+    font-size: 3vw;
+  }
+
+  /*///////////////////////EXPERIENCIAS////////////////////*/
+  .experiencias-text
+  {
+    font-size: 5vw;
+  }
+  
+  .timeline
+  {
+    margin:50px auto;
+  }
+  .timeline::after
+  {
+    left:31px;
+
+} 
+.experiencias-container
+{
+  width:100%;
+  padding-left:80px;
+  padding-right: 25px;
+
+
+}
+.experiencias-text-box
+{
+  font-size: 13px;
+}
+.experiencias-text-box small
+{
+  margin-bottom: 10px;
+}
+.experiencias-right
+{
+  left:0
+}
+.experiencias-left img, 
+.experiencias-right img
+
+{
+  left:10px;
+}
+
+
+.left-container-arrow
+{
+  border-right: 15px solid #fff;
+  border-left: 0;
+  left:-15px;
+}
+/*/////////////////PROJETOS//////////////////*/
+.projetos-texto
+{
+  
+  font-size: 5vw;
+  
+}
+.nxt-btn img,
+.pre-btn img
+{
+  height:30px;
+  width:30px;
+}
+
+/*/////////////////////////ARTIGOS////////////////////////*/
+.nxt-btn-artigos,
+.pre-btn-artigos
+{
+  display: block;
+}
+.artigos
+{
+  display: flex;
+  justify-content:left;
+}
+.artigos-text
+{
+  font-size: 5vw;
+  
+}
+.artigos-column
+{
+  height:60vh;
+}
+/*///////////////CONTATO///////////////////////*/
+.contato-text
+{
+  padding-top:5%;
+font-size: 5vw;
+}
+.main-div-contato
+{
+ 
+  
+  display: block;
+}
+.svg-img
+{
+  display: flex;
+  width:100%;
+  justify-content: center;
+}
+.svg-img img 
+{
+height: 250px;
+width:auto;
+padding-top: 5%;
+}
+.btn-submit
+{
+  width:70%;
+}
+.form-div
+{
+  
+  justify-content: right !important;
+ 
+}
+/*////////////////////////FOOTER////////////////////////*/
+.social-links-footer li a 
+{
+ 
+  font-size:22px;
+}
+footer p 
+{
+  font-size: 15px !important;
+}
+
+}

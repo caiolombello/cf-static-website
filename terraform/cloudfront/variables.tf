@@ -14,11 +14,10 @@ variable "aws_region" {
 
 # s3
 variable "bucket_frontend" {
-  default     = "caio.lombello.com-static-files-prd" 
+  default     = "caio.lombello.com-static-files-prd"
   type        = string
   description = "Bucket de arquivos estáticos."
 }
-
 
 # route 53
 variable "zone_name" {

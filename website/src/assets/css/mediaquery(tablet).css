@@ -1,0 +1,34 @@
+@media(max-width:1200px)
+{
+    .form-div
+{
+  
+  justify-content: center;
+ 
+}
+.devops h1 
+{
+    font-size: 4vw;
+}
+.devops h2 
+{
+    font-size: 3vw;
+}
+.main-menu
+{
+    display: none;
+}
+.hamburger
+{
+    display: block;
+}
+.logo
+{
+    height: 7vw;
+}
+.social-links li a 
+{
+    font-size:23px;
+    margin:30px;
+}
+}

@@ -1,0 +1,114 @@
+/*/////////////////CONTATO//////////////////////////*/
+#contato
+{
+  height:100%;
+  width:100%;
+  background:linear-gradient(rgba(4, 4, 88, 0.822), rgba(1, 1, 41, 0.849)), url('jeremy-thomas-E0AHdsENmDg-unsplash (1).jpg');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.main-div-contato
+{
+  width:100%;
+  display:flex;
+  justify-content: center;
+}
+.svg-img
+{
+  display: flex;
+  justify-content: center;  
+  width:50%;  
+
+}
+
+.svg-img img
+{
+  height:350px;
+  width:auto;
+
+ 
+}
+.contato-text
+{ width:100%;
+  text-align: center;
+  font-size:2.5vw;
+  margin-top:60px;
+}
+.form-div
+{
+  width:50%;
+  justify-content: right;
+  display: flex;
+}
+form
+{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  height: 300px;
+
+  
+}
+.input input
+{
+  width: 250px;
+  height: 25px;
+  background:#fff;
+  border:1px solid #000;
+  outline:none;
+  color:#000;
+  border-radius: 15px;
+  margin:0 auto;
+  text-align: left;
+  padding: 7px;
+  font-size:14px;
+  font-weight:700;
+}
+input::placeholder
+{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+}
+label
+{
+  color:#fff;
+  display: block;
+  margin-top:10px;
+  margin-bottom: 5px;
+ 
+
+}
+textarea
+{outline: none;
+  border: none;
+  width:300px;
+  height:90px;
+  padding:5px;
+  color:#000;
+  border-radius: 12px;
+  font-size:14px;
+  font-weight:700;
+  
+}
+.btn-submit
+{
+  
+  padding:3px 15px;
+  cursor:pointer;
+  background:linear-gradient(to right, blue, darkblue);
+  color:#fff;
+  border-radius: 20px;
+  width:100px;
+  margin-top:10px;
+outline:none;
+border:solid #000280 1px;
+font-weight: 700;
+font-size:16px;
+}
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  text-align: left;
+}

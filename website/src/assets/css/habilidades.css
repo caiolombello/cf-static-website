@@ -1,0 +1,98 @@
+/*SKILLS////////////////////////////*/
+/*section/////*/
+#habilidades
+{
+  width:100%;
+  height:100%;
+  background:linear-gradient(to right, rgb(38, 38, 197), rgba(1, 1, 110, 0.979));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+/***h1 center div*/
+.skills-text
+{padding-top: 1%;
+  width:100%;
+  text-align: center;
+  font-size: 2.5vw;
+  margin-top:60px;
+
+}
+/*Div Principal das Barras de Porcentagem (AUMENTAR A HEIGHT, EM CASO DE ALTERAÇÕES) */
+.main-skill-container
+{ display:flex;
+width:100%;
+height:60%;
+  justify-content: center;
+
+}
+/*Div Secundária das Barras de Porcentagem */
+.skill-container
+{
+margin-top: 1%;
+position:relative;
+ width:80%;
+ height:70%;
+  background-color: #ffffff;
+  padding:10px 20px;
+  border-radius: 7px;
+
+}
+/*Main Div das Habilidades(serve para todas)*/
+.skill-container .skill-box
+{
+  width:100%;
+  margin: 25px 0;
+
+}
+/*Título das Habilidades */
+.skill-box .skill-title
+{
+display:block;
+font-size:1.2vw;
+font-weight:600;
+color:#111111;
+}
+/*Barra das Habilidades(Serve pra todas) */
+.skill-box .skill-bar
+{height:16px;
+  width:100%;
+  border-radius:6px;
+  background: rgba(0, 0, 0,0.1);
+  margin-top:6px;
+}
+/*Porcentagem das Habilidades(Representado pela Width, no momento, representa o DevOps) */
+.skill-bar .skill-per
+{
+  position: relative;
+  display:block;
+  height:100%;
+  width:90%;
+  border-radius: 6px;
+  background:#4070f4;
+  animation:progress 0.4s ease-in-out forwards;
+}
+/*Porcentagem das Habilidades(Python) */
+.skill-per.python
+{
+  width:75%;
+}
+/*Porcentagem das Habilidades(JavaScript) */
+.skill-per.javascript
+{
+  width:80%;
+}
+/*Animação de Progresso*/
+@keyframes progress{
+  0%
+  {
+    width:0;
+    opacity: 0;;
+  }
+  100%
+  {
+    opacity:1;
+  }
+}
