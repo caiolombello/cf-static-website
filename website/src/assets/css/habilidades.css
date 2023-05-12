@@ -76,15 +76,50 @@ color:#111111;
   background:#4070f4;
   animation:progress 0.4s ease-in-out forwards;
 }
+/*Porcentagem das Habilidades(Bash) */
+.skill-per.bash
+{
+  width:50%;
+}
 /*Porcentagem das Habilidades(Python) */
 .skill-per.python
 {
+  width:60%;
+}
+/*Porcentagem das Habilidades(Kubernetes) */
+.skill-per.kubernetes
+{
+  width:65%;
+}
+/*Porcentagem das Habilidades(AWS) */
+.skill-per.aws
+{
+  width:35%;
+}
+/*Porcentagem das Habilidades(Terraform) */
+.skill-per.terraform
+{
+  width:40%;
+}
+/*Porcentagem das Habilidades(Helm) */
+.skill-per.helm
+{
+  width:50%;
+}
+/*Porcentagem das Habilidades(Docker) */
+.skill-per.docker
+{
   width:75%;
 }
-/*Porcentagem das Habilidades(JavaScript) */
-.skill-per.javascript
+/*Porcentagem das Habilidades(Pipelines) */
+.skill-per.pipelines
 {
   width:80%;
+}
+/*Porcentagem das Habilidades(DevOps) */
+.skill-per.devops
+{
+  width:90%;
 }
 /*Animação de Progresso*/
 @keyframes progress{
