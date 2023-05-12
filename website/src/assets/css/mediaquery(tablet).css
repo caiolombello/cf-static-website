@@ -1,18 +1,42 @@
-@media(max-width:1200px)
+@media(max-width:1300px)
 {
     .form-div
 {
   
   justify-content: center;
  
+
 }
-.devops h1 
+/*//////////////HEADER//////////////////*/
+header
 {
-    font-size: 4vw;
+    background-image:linear-gradient(to right, #252325c2, #0817e77a), url('hero\(tablet\(certa\)\).jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-.devops h2 
+.logo
 {
-    font-size: 3vw;
+  height:4.4em;
+}
+.devops img
+{
+  
+  height:8em;
+}
+
+.devops h1{
+font-size:2.4em;
+}
+.devops h2
+{
+  font-size:1.7em;
+}
+.social-links li a 
+{
+  font-size: 1.4em;
+  margin:.8em;
+ 
 }
 .main-menu
 {
@@ -22,13 +46,17 @@
 {
     display: block;
 }
-.logo
+
+/*//////////HABILIDADES////////////*/
+.skills-text
 {
-    height: 7vw;
+    font-size:1.8em;
 }
-.social-links li a 
+/*///////////////CONTATO///////////////*/
+.svg-img img 
 {
-    font-size:23px;
-    margin:30px;
+    width:70%;
+    margin-left:2em;
 }
+
 }

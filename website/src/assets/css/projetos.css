@@ -1,4 +1,5 @@
 /* PRODUCTS */
+
 #projetos
 {
   width:100%;
@@ -6,6 +7,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  min-height: 800px;
 
 }
 .product {
@@ -20,7 +22,7 @@
   width:100%;
   display: flex;
   justify-content: center;
-  font-size: 2.5vw;
+  font-size: 2em;
   margin-top:60px;  
 }
 
@@ -196,12 +198,17 @@ color:#000;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 2%, #16026b 100%);
   cursor: pointer;
   z-index: 8;
+  outline: none;
+  border: 0 solid transparent;
+
 }
 
 .pre-btn {
   left: 0;
   transform: rotate(180deg);
 }
+
+
 
 .nxt-btn {
   right: 0;

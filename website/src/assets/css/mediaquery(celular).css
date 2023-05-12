@@ -1,23 +1,24 @@
 /*media queries(CELULAR)/////////////////////////*/
-@media (max-width:768px)
+@media (max-width:600px)
 {
   /*//////////////HEADER////////////////////////*/
   .devops h1
   {
-    font-size:7vw !important;
+    font-size:2em !important;
   }
   .devops h2
   {
-    font-size:5vw !important;
+    font-size:1.3em !important;
   }
   .devops .social-links li a
   {
-    font-size: 20px;
-    margin:20px;
+    font-size: 1.2em;
+    margin:.6em;
   }
+
   ul li a 
   {
-    font-size: 3vw;
+    font-size: 1.1em;
   }
   .main-menu
   {
@@ -26,39 +27,46 @@
   .logo
   {
    left:15%;
-   height: 70px !important;
+   height: 4em !important;
   }
  .nav
  {
 
  width:100%;
  justify-content: space-between;
- height:10%;
+ 
  }
  .hamburger
- {
+ {height:4em;
   display:block;
+  right: 15%;
+  margin-right: 2em;
  }
   header
   {
-    background-image: linear-gradient(to right, #252325c2, #0817e77a), url('hero\(cellphone\).jpg');
+    background-image: linear-gradient(to right, #252325c2, #0817e77a), url('hero\(cellphone\).jpg'); 
     background-size: cover;
   }
 
   /*////////////////////HABILIDADES////////////////////////*/
   .skills-text
   {
-    font-size:5vw;
+    font-size:1.7em;
   }
   .skill-box .skill-title
   {
-    font-size: 3vw;
+    font-size: .9em;
   }
 
   /*///////////////////////EXPERIENCIAS////////////////////*/
-  .experiencias-text
+  #experiencias
   {
-    font-size: 5vw;
+    min-height: 650px;
+  }
+  .experiencias-text
+
+  {
+    font-size: 1.7em;
   }
   
   .timeline
@@ -108,17 +116,23 @@
 .projetos-texto
 {
   
-  font-size: 5vw;
+  font-size: 1.7em;
   
 }
 .nxt-btn img,
 .pre-btn img
 {
-  height:30px;
-  width:30px;
+  height:2.5em;
+  width:2.5em;
 }
 
 /*/////////////////////////ARTIGOS////////////////////////*/
+#artigos
+{ 
+  background-image:linear-gradient(to right, #070058c2, #0817e77a),url('artigos.jpg');
+  background-size: cover;
+  background-position: center;
+}
 .nxt-btn-artigos,
 .pre-btn-artigos
 {
@@ -131,18 +145,15 @@
 }
 .artigos-text
 {
-  font-size: 5vw;
+  font-size: 1.7em;
   
 }
-.artigos-column
-{
-  height:60vh;
-}
+
 /*///////////////CONTATO///////////////////////*/
 .contato-text
 {
   padding-top:5%;
-font-size: 5vw;
+font-size: 1.7em;
 }
 .main-div-contato
 {
@@ -161,16 +172,45 @@ font-size: 5vw;
 height: 250px;
 width:auto;
 padding-top: 5%;
+padding-bottom: 4em;
 }
 .btn-submit
 {
-  width:70%;
+  width:100%;
 }
 .form-div
 {
   
   justify-content: right !important;
  
+}
+.input input
+{
+  width: 10em;
+  height: 1.2em;
+  background:#fff;
+  border:1px solid #000;
+  outline:none;
+  color:#000;
+  border-radius: 15px;
+  margin:0 auto;
+  text-align: left;
+  padding: .3em;
+  font-size:1em;
+  font-weight:700;
+}
+textarea
+{outline: none;
+  border: none;
+  width:14em;
+  height:9em;
+  padding:.3em;
+
+  color:#000;
+  border-radius: 12px;
+  font-size:1em;
+  font-weight:700;
+  
 }
 /*////////////////////////FOOTER////////////////////////*/
 .social-links-footer li a 
@@ -180,7 +220,17 @@ padding-top: 5%;
 }
 footer p 
 {
-  font-size: 15px !important;
+  font-size: 1em !important;
+}
+
+.social-links-footer li a 
+{
+  margin: 0 .3em;
+  font-size: 1em;
+}
+.footer-direitos
+{
+  display: none;
 }
 
 }

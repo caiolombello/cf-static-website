@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400&display=swap');
+
 html
 {
   scroll-behavior: smooth;
@@ -9,6 +10,7 @@ html
   box-sizing:border-box;
   font-family:'Urbanist', sans-serif;
   color:#fff;
+  
 }
 
      /* Personalizar a barra de rolagem para navegadores baseados em WebKit (Chrome, Safari, etc.) */
@@ -39,6 +41,7 @@ header
   width: 100%;
   align-items:center;
   text-align:center;
+  min-height: 500px;
   background-image:linear-gradient(to right, #252325c2, #0817e77a), url('hero.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -61,7 +64,7 @@ nav
 .nav-transparent { background-color:transparent;
   transition: background-color 200ms linear;}
 .logo
-{ height:6vw;
+{ height:4em;
   width:20%;
   display:flex;
   justify-content: center;
@@ -107,8 +110,8 @@ ul li a
 }
 .social-links li a 
 {
-  font-size: 1.8vw;
-  margin:1.8em;
+  font-size: 1.5em;
+  margin:1.2em;
 }
 .hamburger
 {
@@ -192,15 +195,15 @@ transform:rotate(45deg) translate(-6px, -7px);
 .devops img
 {
   border-radius: 50%;
-  height:150px;
+  height:10em;
 }
 
 .devops h1{
-font-size:4vw;
+font-size:3.4em;
 }
 .devops h2
 {
-  font-size:3vw;
+  font-size:2.5em;
 }
 .animation
 {
