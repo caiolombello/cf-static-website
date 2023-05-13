@@ -1,4 +1,4 @@
-resource "aws_s3_bucket_object" "html" {
+resource "aws_s3_object" "html" {
   for_each     = fileset("../../website/src", "**/*.html")
   bucket       = aws_s3_bucket.frontend.bucket
   key          = each.value
@@ -7,7 +7,7 @@ resource "aws_s3_bucket_object" "html" {
   content_type = "text/html"
 }
 
-resource "aws_s3_bucket_object" "js" {
+resource "aws_s3_object" "js" {
   for_each     = fileset("../../website/src", "**/*.js")
   bucket       = aws_s3_bucket.frontend.bucket
   key          = each.value
@@ -16,7 +16,7 @@ resource "aws_s3_bucket_object" "js" {
   content_type = "application/javascript"
 }
 
-resource "aws_s3_bucket_object" "css" {
+resource "aws_s3_object" "css" {
   for_each     = fileset("../../website/src/assets/css", "**/*.css")
   bucket       = aws_s3_bucket.frontend.bucket
   key          = each.value
@@ -35,7 +35,7 @@ locals {
   }
 }
 
-resource "aws_s3_bucket_object" "img" {
+resource "aws_s3_object" "img" {
   for_each = fileset("../../website/src/assets/images", "**/*.*")
 
   bucket       = aws_s3_bucket.frontend.bucket
@@ -46,7 +46,7 @@ resource "aws_s3_bucket_object" "img" {
 }
 
 # en
-resource "aws_s3_bucket_object" "html-en" {
+resource "aws_s3_object" "html-en" {
   for_each     = toset(["index-en.html"])
   bucket       = aws_s3_bucket.frontend.bucket
   key          = "en.html"

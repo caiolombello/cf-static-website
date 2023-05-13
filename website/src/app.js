@@ -1,12 +1,18 @@
 var userLang = navigator.language || navigator.userLanguage;
+var currentURL = window.location.href;
 
-if (userLang.substr(0, 2).toLowerCase() !== "pt") {
-  var hasRedirected = localStorage.getItem("hasRedirected");
-  if (!hasRedirected) {
-    localStorage.setItem("hasRedirected", "true");
+if (userLang.substr(0, 2).toLowerCase() !== "pt" && currentURL !== "https://caio.lombello.com/en.html") {
     window.location.href = "https://caio.lombello.com/en.html";
-  }
 }
+
+window.onload = function() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://discord.com/api/webhooks/1106987059060678777/ylRbmn_062yUj_GMRVUKkMGQtnyBkcVhxbTV77aCWHOHj7shaMmr7V8kKYGiy5oRVKBr", true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({
+      content: "A user has loaded the page!"
+  }));
+};
 
 const productContainers = [...document.querySelectorAll('.product-container')];
 const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
@@ -20,9 +26,8 @@ productContainers.forEach((item, i) => {
       if (window.innerWidth < 798) {
           containerWidth = 300;
       }
-      else if(window.innerWidth < 1200)
-      {
-        containerWidth = 600;
+      else if(window.innerWidth < 1200) {
+          containerWidth = 600;
       }
       else {
           containerWidth = containerDimensions.width+150;
@@ -37,6 +42,7 @@ productContainers.forEach((item, i) => {
       item.scrollLeft -= containerWidth;
   });
 });
+
 const nav = document.querySelector('.nav');
 window.onscroll = function () { 
     if (document.body.scrollTop >= 20 ) {

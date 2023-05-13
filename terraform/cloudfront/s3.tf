@@ -2,11 +2,6 @@
 resource "aws_s3_bucket" "frontend" {
   bucket        = var.bucket_frontend
   force_destroy = true
-  acl           = "private"
-
-  versioning {
-    enabled = false
-  }
 
   tags = {
     Name      = var.bucket_frontend
@@ -18,8 +13,8 @@ resource "aws_s3_bucket" "frontend" {
 # configuracao de acesso ao bucket
 resource "aws_s3_bucket_public_access_block" "frontend_block_acls_public" {
   bucket              = aws_s3_bucket.frontend.id
-  block_public_acls   = true # bloqueio de acesso publico por acls
-  block_public_policy = true # bloqueio de acesso publico por policy
+  block_public_acls   = true
+  block_public_policy = true
   depends_on = [
     aws_s3_bucket.frontend
   ]
