@@ -23,5 +23,9 @@ terraform {
 
     }
 
+    archive = {
+      source = "hashicorp/archive"
+    }
+
   }
 }
