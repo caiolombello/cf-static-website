@@ -7,32 +7,24 @@ resource "aws_s3_bucket" "logs" {
   }
 }
 
+data "aws_iam_policy_document" "allow_access_from_cloudfront" {
+  statement {
+    sid    = "Allow Cloudfront Logging"
+    effect = "Allow"
+    principals {
+      type        = "AWS"
+      identifiers = ["arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.id}"]
+    }
+    actions   = ["s3:PutObject"]
+    resources = ["${aws_s3_bucket.logs.arn}/*"]
+  }
+}
+
 resource "aws_s3_bucket_policy" "allow_access_from_cloudfront" {
   bucket = aws_s3_bucket.logs.id
-  policy = <<POLICY
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "s3:GetBucketAcl",
-      "Effect": "Allow",
-      "Resource": "${aws_s3_bucket.logs.arn}",
-      "Principal": {
-        "AWS": "${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.iam_arn}"
-      }
-    },
-    {
-      "Action": "s3:PutObject",
-      "Effect": "Allow",
-      "Resource": "${aws_s3_bucket.logs.arn}/*",
-      "Principal": {
-        "AWS": "${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.iam_arn}"
-      }
-    }
-  ]
+  policy = data.aws_iam_policy_document.allow_access_from_cloudfront.json
 }
-POLICY
-}
+
 
 resource "aws_s3_bucket_versioning" "logs" {
   bucket = aws_s3_bucket.logs.id
