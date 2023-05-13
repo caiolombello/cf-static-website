@@ -8,7 +8,7 @@
   }
   .devops h2
   {
-    font-size:1.3em !important;
+    font-size:1.1em !important;
   }
   .devops .social-links li a
   {
@@ -61,7 +61,7 @@
   /*///////////////////////EXPERIENCIAS////////////////////*/
   #experiencias
   {
-    min-height: 650px;
+    height:400vh;
   }
   .experiencias-text
 
@@ -169,7 +169,7 @@ font-size: 1.7em;
 }
 .svg-img img 
 {
-height: 250px;
+height: 210px;
 width:auto;
 padding-top: 5%;
 padding-bottom: 4em;
