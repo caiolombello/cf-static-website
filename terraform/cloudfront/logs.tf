@@ -28,6 +28,7 @@ resource "aws_s3_bucket_policy" "allow_access_from_cloudfront" {
       "Principal": {
         "AWS": "${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.iam_arn}"
       }
+    }
   ]
 }
 POLICY
