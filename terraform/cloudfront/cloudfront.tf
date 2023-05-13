@@ -110,12 +110,6 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
 
   }
 
-  logging_config {
-    include_cookies = false
-    bucket          = aws_s3_bucket.frontend.bucket_domain_name
-    prefix          = "logs/"
-  }
-
   tags = {
     Project   = var.project_name
     Terraform = true

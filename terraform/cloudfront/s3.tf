@@ -15,37 +15,11 @@ resource "aws_s3_bucket_acl" "frontend" {
   acl    = "private"
 }
 
-resource "aws_s3_bucket_versioning" "frontend" {
-  bucket = aws_s3_bucket.frontend.id
-
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
-
-resource "aws_s3_bucket_lifecycle_configuration" "frontend" {
-  bucket = aws_s3_bucket.frontend.id
-
-  rule {
-    id     = "limpeza"
-    status = "Enabled"
-    
-    filter {
-      prefix = "logs/"
-    }
-    
-    expiration {
-      days = 30
-    }
-  }
-}
-
-
 # configuracao de acesso ao bucket
 resource "aws_s3_bucket_public_access_block" "frontend_block_acls_public" {
   bucket              = aws_s3_bucket.frontend.id
-  block_public_acls   = false
-  block_public_policy = false
+  block_public_acls   = true
+  block_public_policy = true
   depends_on = [
     aws_s3_bucket.frontend
   ]
@@ -64,7 +38,7 @@ resource "aws_s3_bucket_policy" "frontend_bucket_policy" {
 data "aws_iam_policy_document" "frontend_policy_document" {
   statement {
     sid       = "CF-Policy-${var.bucket_frontend}"
-    actions   = ["s3:GetObject", "s3:PutObject", "s3:PutObjectAcl"]
+    actions   = ["s3:GetObject"]
     resources = ["${aws_s3_bucket.frontend.arn}/*"]
     effect    = "Allow"
 
