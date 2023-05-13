@@ -12,8 +12,8 @@ data "aws_iam_policy_document" "allow_access_from_cloudfront" {
     sid    = "Allow Cloudfront Logging"
     effect = "Allow"
     principals {
-      type        = "AWS"
-      identifiers = ["arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.id}"]
+      type        = "Service"
+      identifiers = ["cloudfront.amazonaws.com"]
     }
     actions   = ["s3:PutObject"]
     resources = ["${aws_s3_bucket.logs.arn}/*"]
