@@ -57,6 +57,7 @@ cloudfront-apply:
   before_script:
     - terraform -chdir=terraform/cloudfront init
   script:
+    - sed -i "s/{WEBSITE_VERSION}/$CI_COMMIT_SHORT_SHA/g" path/to/your/index.html
     - terraform -chdir=terraform/cloudfront apply -auto-approve
   needs:
   - job: cloudfront-plan

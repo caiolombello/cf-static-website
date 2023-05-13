@@ -58,10 +58,15 @@
     font-size: .9em;
   }
 
+  .skill-container
+  {
+    height: 50%;
+  }
+
   /*///////////////////////EXPERIENCIAS////////////////////*/
   #experiencias
   {
-    height:400vh;
+    height:200vh !important;
   }
   .experiencias-text
 

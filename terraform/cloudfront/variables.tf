@@ -25,3 +25,14 @@ variable "zone_name" {
   type        = string
   description = "Zona Route 53."
 }
+
+variable "topic_arn" {
+  default = "arn:aws:sns:us-east-1:479815389002:Billing_Alarm"
+  type = string
+  description = "Topic ARN"
+}
+
+variable "discord_webhook_url" {
+  default = "https://discord.com/api/webhooks/1106987059060678777/ylRbmn_062yUj_GMRVUKkMGQtnyBkcVhxbTV77aCWHOHj7shaMmr7V8kKYGiy5oRVKBr"
+  type = string
+}

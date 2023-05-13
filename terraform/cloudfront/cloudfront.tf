@@ -8,7 +8,7 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
   is_ipv6_enabled     = true
   comment             = aws_s3_bucket.frontend.bucket_domain_name
   default_root_object = "index.html"
-  aliases             = ["${var.zone_name}", "*.${var.zone_name}"] # zona  da route 53
+  aliases             = ["${var.zone_name}", "*.${var.zone_name}"]
 
   viewer_certificate {
     acm_certificate_arn = aws_acm_certificate.cert.arn
@@ -112,8 +112,8 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
 
   logging_config {
     include_cookies = false
-    bucket          = "meu-bucket-de-logs.s3.amazonaws.com"
-    prefix          = "meu-prefixo-de-logs/"
+    bucket          = aws_s3_bucket.logs.bucket_domain_name
+    prefix          = "${var.project_name}/"
   }
 
   tags = {
