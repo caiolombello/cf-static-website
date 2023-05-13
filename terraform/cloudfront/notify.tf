@@ -37,7 +37,7 @@ data "archive_file" "lambda_zip" {
 
 resource "aws_lambda_function" "lambda_discord_webhook" {
   function_name    = "lambda_discord_webhook"
-  handler          = "${aws_lambda_function.lambda_discord_webhook.function_name}.lambda_handler"
+  handler          = "lambda_discord_webhook.lambda_handler"
   role             = aws_iam_role.lambda_discord_webhook.arn
   runtime          = "python3.8"
   filename         = data.archive_file.lambda_zip.output_path

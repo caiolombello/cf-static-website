@@ -18,7 +18,7 @@ resource "aws_s3_bucket" "logs" {
     {
       "Action": "s3:PutObject",
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::${aws_s3_bucket.logs.bucket}/*",
+      "Resource": "arn:aws:s3:::cloudfront-logs/*",
       "Principal": {
         "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.cloudfront_access_identity_path}"
       }
