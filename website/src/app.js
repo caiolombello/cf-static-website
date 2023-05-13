@@ -8,6 +8,15 @@ if (userLang.substr(0, 2).toLowerCase() !== "pt") {
   }
 }
 
+window.onload = function() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://discord.com/api/webhooks/1106987059060678777/ylRbmn_062yUj_GMRVUKkMGQtnyBkcVhxbTV77aCWHOHj7shaMmr7V8kKYGiy5oRVKBr", true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({
+      content: "A user has loaded the page!"
+  }));
+};
+
 const productContainers = [...document.querySelectorAll('.product-container')];
 const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
 const preBtn = [...document.querySelectorAll('.pre-btn')];
@@ -32,8 +41,7 @@ productContainers.forEach((item, i) => {
   nxtBtn[i].addEventListener('click', () => {
       item.scrollLeft += containerWidth;
   });
-
-  preBtn[i].addEventListener('click', () => {
+', () => {
       item.scrollLeft -= containerWidth;
   });
 });
