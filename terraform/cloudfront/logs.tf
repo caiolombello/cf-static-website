@@ -18,7 +18,7 @@ resource "aws_s3_bucket_policy" "allow_access_from_cloudfront" {
       "Effect": "Allow",
       "Resource": "${aws_s3_bucket.logs.arn}",
       "Principal": {
-        "AWS": "${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.iam_arn}""
+        "AWS": "${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.iam_arn}"
       }
     },
     {
