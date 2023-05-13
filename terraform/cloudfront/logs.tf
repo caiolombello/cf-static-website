@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "logs" {
   bucket = "${var.project_name}-cloudfront-logs"
+  acl    = "private"
   tags = {
     Name      = "cloudfront-logs"
     Project   = var.project_name

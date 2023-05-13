@@ -1,6 +1,7 @@
 # bucket para armazenamento dos arquivos estaticos
 resource "aws_s3_bucket" "frontend" {
   bucket        = var.bucket_frontend
+  acl           = "private"
   force_destroy = true
 
   tags = {
