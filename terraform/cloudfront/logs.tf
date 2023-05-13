@@ -34,11 +34,6 @@ resource "aws_s3_bucket_policy" "allow_access_from_cloudfront" {
 POLICY
 }
 
-resource "aws_s3_bucket_acl" "logs" {
-  bucket = aws_s3_bucket.logs.id
-  acl    = "log-delivery-write"
-}
-
 resource "aws_s3_bucket_versioning" "logs" {
   bucket = aws_s3_bucket.logs.id
 
