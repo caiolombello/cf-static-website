@@ -3,7 +3,7 @@
 #projetos
 {
   width:100%;
-  height:150vh;
+  height:100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -43,11 +43,12 @@ text-align: center;
 .product-card {
   flex: 0 0 auto;
   width: 250px;
-  height: 650px;
+  height: 400px;
   margin-right: 40px;
   background:linear-gradient(to right, rgb(230, 230, 230), rgb(255, 255, 255));
   border-radius: 20px;
   text-align: center;
+
 
   
 }
@@ -55,7 +56,7 @@ text-align: center;
 .product-image {
   position: relative;
   width: 100%;
-  height: 25%;
+  height: 40%;
   overflow: hidden;
 }
 .product-image img
@@ -121,7 +122,9 @@ text-align: center;
   padding-top: 10px;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
+  
 }
 .product-info h2
 
