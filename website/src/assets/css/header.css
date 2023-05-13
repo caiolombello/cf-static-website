@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400&display=swap');
 
+input,
+textarea,
+button,
+select,
+a, img {
+    -webkit-tap-highlight-color: transparent;
+}
+
 html
 {
   scroll-behavior: smooth;
@@ -231,6 +239,7 @@ font-size:3.4em;
     transform:translateY(0);
   }
 }
+
 /* CSS para Título das Porcentagens
 .skill-per .tooltip
 {
