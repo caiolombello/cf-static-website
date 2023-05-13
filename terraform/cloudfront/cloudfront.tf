@@ -10,7 +10,6 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
   default_root_object = "index.html"
   aliases             = ["${var.zone_name}", "*.${var.zone_name}"] # zona  da route 53
 
-
   viewer_certificate {
     acm_certificate_arn = aws_acm_certificate.cert.arn
     ssl_support_method  = "sni-only"
@@ -109,6 +108,12 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
     max_ttl                = 86400
     smooth_streaming       = false
   
+  }
+
+  logging_config {
+    include_cookies = false
+    bucket          = "meu-bucket-de-logs.s3.amazonaws.com"
+    prefix          = "meu-prefixo-de-logs/"
   }
 
   tags = {
