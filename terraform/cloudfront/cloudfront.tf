@@ -107,7 +107,7 @@ resource "aws_cloudfront_distribution" "cf_distribution" {
     default_ttl            = 3600
     max_ttl                = 86400
     smooth_streaming       = false
-  
+
   }
 
   logging_config {
