@@ -2,7 +2,7 @@
 #experiencias
 {display: flex;
   flex-direction: column;
-  height:200vh;
+  height:100%;
   width:100%;
   justify-content: center;
   align-items: center;

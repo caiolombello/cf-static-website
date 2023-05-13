@@ -26,7 +26,7 @@
   }
   .logo
   {
-   left:15%;
+   left:20%;
    height: 4em !important;
   }
  .nav
@@ -59,10 +59,7 @@
   }
 
   /*///////////////////////EXPERIENCIAS////////////////////*/
-  #experiencias
-  {
-    height:400vh;
-  }
+
   .experiencias-text
 
   {
