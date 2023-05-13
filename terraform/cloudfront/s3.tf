@@ -1,7 +1,6 @@
 # bucket para armazenamento dos arquivos estaticos
 resource "aws_s3_bucket" "frontend" {
   bucket        = var.bucket_frontend
-  acl           = "private"
   force_destroy = true
 
   tags = {
@@ -9,6 +8,11 @@ resource "aws_s3_bucket" "frontend" {
     Project   = var.project_name
     Terraform = true
   }
+}
+
+resource "aws_s3_bucket_acl" "frontend" {
+  bucket = aws_s3_bucket.frontend.id
+  acl    = "private"
 }
 
 resource "aws_s3_bucket_versioning" "frontend" {
@@ -40,8 +44,8 @@ resource "aws_s3_bucket_lifecycle_configuration" "frontend" {
 # configuracao de acesso ao bucket
 resource "aws_s3_bucket_public_access_block" "frontend_block_acls_public" {
   bucket              = aws_s3_bucket.frontend.id
-  block_public_acls   = true # bloqueio de acesso publico por acls
-  block_public_policy = true # bloqueio de acesso publico por policy
+  block_public_acls   = false
+  block_public_policy = false
   depends_on = [
     aws_s3_bucket.frontend
   ]
@@ -60,7 +64,7 @@ resource "aws_s3_bucket_policy" "frontend_bucket_policy" {
 data "aws_iam_policy_document" "frontend_policy_document" {
   statement {
     sid       = "CF-Policy-${var.bucket_frontend}"
-    actions   = ["s3:GetObject","s3:PutObject"]
+    actions   = ["s3:GetObject", "s3:PutObject", "s3:PutObjectAcl"]
     resources = ["${aws_s3_bucket.frontend.arn}/*"]
     effect    = "Allow"
 
