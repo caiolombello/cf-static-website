@@ -15,9 +15,27 @@ resource "aws_s3_bucket_versioning" "frontend" {
   bucket = aws_s3_bucket.frontend.id
 
   versioning_configuration {
-    status = "Suspended"
+    status = "Enabled"
   }
 }
+
+resource "aws_s3_bucket_lifecycle_configuration" "frontend" {
+  bucket = aws_s3_bucket.frontend.id
+
+  rule {
+    id     = "limpeza"
+    status = "Enabled"
+    
+    filter {
+      prefix = "logs/"
+    }
+    
+    expiration {
+      days = 30
+    }
+  }
+}
+
 
 # configuracao de acesso ao bucket
 resource "aws_s3_bucket_public_access_block" "frontend_block_acls_public" {
@@ -42,7 +60,7 @@ resource "aws_s3_bucket_policy" "frontend_bucket_policy" {
 data "aws_iam_policy_document" "frontend_policy_document" {
   statement {
     sid       = "CF-Policy-${var.bucket_frontend}"
-    actions   = ["s3:GetObject"]
+    actions   = ["s3:GetObject","s3:PutObject"]
     resources = ["${aws_s3_bucket.frontend.arn}/*"]
     effect    = "Allow"
 
