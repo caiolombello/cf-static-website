@@ -39,12 +39,13 @@ productContainers.forEach((item, i) => {
   });
 
   nxtBtn[i].addEventListener('click', () => {
-      item.scrollLeft += containerWidth;
-  });
-', () => {
-      item.scrollLeft -= containerWidth;
-  });
+    item.scrollLeft += containerWidth;
 });
+  
+preBtn[i].addEventListener('click', () => {
+    item.scrollLeft -= containerWidth;
+});
+
 const nav = document.querySelector('.nav');
 window.onscroll = function () { 
     if (document.body.scrollTop >= 20 ) {
