@@ -12,6 +12,13 @@ html
   color:#fff;
   
 }
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
 
      /* Personalizar a barra de rolagem para navegadores baseados em WebKit (Chrome, Safari, etc.) */
      ::-webkit-scrollbar {
