@@ -11,7 +11,7 @@ provider "aws" {
 terraform {
 
   # versao minima obrigatoria do terraform
-  required_version = ">= 1.0.19"
+  required_version = ">= 1.4"
 
   # providers obrigatorios
   required_providers {

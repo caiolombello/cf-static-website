@@ -1,22 +1,14 @@
 resource "aws_s3_bucket" "logs" {
   bucket = "cloudfront-logs"
-  acl    = "log-delivery-write"
-
-  lifecycle_rule {
-    id      = "limpeza"
-    status  = "Enabled"
-
-    noncurrent_version_expiration {
-      days = 30
-    }
-  }
-
   tags = {
+    Name      = "cloudfront-logs"
     Project   = var.project_name
     Terraform = true
   }
+}
 
-  # Configuração para permitir que o CloudFront escreva logs no bucket
+resource "aws_s3_bucket_policy" "allow_access_from_cloudfront" {
+  bucket = aws_s3_bucket.logs.id
   policy = <<POLICY
 {
   "Version": "2012-10-17",
@@ -34,8 +26,27 @@ resource "aws_s3_bucket" "logs" {
 POLICY
 }
 
-resource "aws_s3_bucket_versioning" "versioning" {
+resource "aws_s3_bucket_acl" "logs" {
+  bucket = aws_s3_bucket.logs.id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_versioning" "logs" {
   bucket = aws_s3_bucket.logs.id
 
-  status = "Enabled"
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "logs" {
+  bucket = aws_s3_bucket.logs.id
+
+  rule {
+    id = "limpeza"
+    status = "Enabled"
+    expiration {
+      days = 30
+    }
+  }
 }

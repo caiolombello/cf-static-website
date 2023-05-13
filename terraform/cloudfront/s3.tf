@@ -2,16 +2,24 @@
 resource "aws_s3_bucket" "frontend" {
   bucket        = var.bucket_frontend
   force_destroy = true
-  acl           = "private"
-
-  versioning {
-    enabled = false
-  }
 
   tags = {
     Name      = var.bucket_frontend
     Project   = var.project_name
     Terraform = true
+  }
+}
+
+resource "aws_s3_bucket_acl" "frontend" {
+  bucket = aws_s3_bucket.frontend.id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_versioning" "frontend" {
+  bucket = aws_s3_bucket.frontend.id
+
+  versioning_configuration {
+    status = "Disabled"
   }
 }
 
