@@ -29,9 +29,8 @@ productContainers.forEach((item, i) => {
       if (window.innerWidth < 798) {
           containerWidth = 300;
       }
-      else if(window.innerWidth < 1200)
-      {
-        containerWidth = 600;
+      else if(window.innerWidth < 1200) {
+          containerWidth = 600;
       }
       else {
           containerWidth = containerDimensions.width+150;
@@ -39,11 +38,12 @@ productContainers.forEach((item, i) => {
   });
 
   nxtBtn[i].addEventListener('click', () => {
-    item.scrollLeft += containerWidth;
-});
-  
-preBtn[i].addEventListener('click', () => {
-    item.scrollLeft -= containerWidth;
+      item.scrollLeft += containerWidth;
+  });
+
+  preBtn[i].addEventListener('click', () => {
+      item.scrollLeft -= containerWidth;
+  });
 });
 
 const nav = document.querySelector('.nav');
