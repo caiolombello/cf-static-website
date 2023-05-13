@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "logs" {
-  bucket = "cloudfront-logs"
+  bucket = "${var.project_name}-cloudfront-logs"
   tags = {
     Name      = "cloudfront-logs"
     Project   = var.project_name
@@ -16,7 +16,7 @@ resource "aws_s3_bucket_policy" "allow_access_from_cloudfront" {
     {
       "Action": "s3:PutObject",
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::cloudfront-logs/*",
+      "Resource": "arn:aws:s3:::${var.project_name}-cloudfront-logs/*",
       "Principal": {
         "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.cloudfront_access_identity_path}"
       }
