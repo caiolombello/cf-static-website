@@ -1,11 +1,8 @@
 var userLang = navigator.language || navigator.userLanguage;
+var currentURL = window.location.href;
 
-if (userLang.substr(0, 2).toLowerCase() !== "pt") {
-  var hasRedirected = localStorage.getItem("hasRedirected");
-  if (!hasRedirected) {
-    localStorage.setItem("hasRedirected", "true");
+if (userLang.substr(0, 2).toLowerCase() !== "pt" && currentURL !== "https://caio.lombello.com/en.html") {
     window.location.href = "https://caio.lombello.com/en.html";
-  }
 }
 
 window.onload = function() {
