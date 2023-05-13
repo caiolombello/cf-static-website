@@ -10,11 +10,6 @@ resource "aws_s3_bucket" "frontend" {
   }
 }
 
-resource "aws_s3_bucket_acl" "frontend" {
-  bucket = aws_s3_bucket.frontend.id
-  acl    = "private"
-}
-
 # configuracao de acesso ao bucket
 resource "aws_s3_bucket_public_access_block" "frontend_block_acls_public" {
   bucket              = aws_s3_bucket.frontend.id
