@@ -14,13 +14,20 @@ resource "aws_s3_bucket_policy" "allow_access_from_cloudfront" {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Action": "s3:GetBucketAcl",
+      "Effect": "Allow",
+      "Resource": "${aws_s3_bucket.logs.arn}",
+      "Principal": {
+        "AWS": "${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.iam_arn}""
+      }
+    },
+    {
       "Action": "s3:PutObject",
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::${var.project_name}-cloudfront-logs/*",
+      "Resource": "${aws_s3_bucket.logs.arn}/*",
       "Principal": {
-        "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.cloudfront_access_identity_path}"
+        "AWS": "${aws_cloudfront_origin_access_identity.frontend_origin_access_identity.iam_arn}"
       }
-    }
   ]
 }
 POLICY
@@ -28,7 +35,7 @@ POLICY
 
 resource "aws_s3_bucket_acl" "logs" {
   bucket = aws_s3_bucket.logs.id
-  acl    = "private"
+  acl    = "log-delivery-write"
 }
 
 resource "aws_s3_bucket_versioning" "logs" {
