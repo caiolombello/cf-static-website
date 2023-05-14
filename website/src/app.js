@@ -1,3 +1,43 @@
+const open_modal1 = document.querySelector(".open_modal1");
+const fechar_modal1 = document.querySelector(".fechar_modal1");
+const modal1 = document.querySelector(".modal-container1")
+open_modal1.addEventListener("click", function()
+{
+  modal1.classList.toggle("modal-hide1");
+});
+fechar_modal1.addEventListener("click", function()
+{
+  modal1.classList.toggle("modal-hide1");
+ 
+  
+})
+window.addEventListener('click', function(event) {
+  if (event.target == modal1) {
+    modal1.classList.toggle("modal-hide1");
+  }
+});
+
+const open_modal = document.querySelector(".open_modal");
+const fechar_modal = document.querySelector(".fechar_modal");
+const modal = document.querySelector(".modal-container")
+open_modal.addEventListener("click", function()
+{
+  modal.classList.toggle("modal-hide");
+});
+fechar_modal.addEventListener("click", function()
+{
+  modal.classList.toggle("modal-hide");
+  modal1.classList.toggle("modal-hide");
+  
+})
+window.addEventListener('click', function(event) {
+  if (event.target == modal) {
+    modal.classList.toggle("modal-hide");
+  }
+});
+
+
+
 var userLang = navigator.language || navigator.userLanguage;
 var currentURL = window.location.href;
 

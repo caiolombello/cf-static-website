@@ -175,3 +175,142 @@ height:0;
   transform: rotate(180deg);
 
 }
+.modal-container
+{
+  width:100vw;
+  height:100vh;
+ background-color:rgba(0,0,0, .5);
+ display: none;
+ justify-content: center;
+ align-items: center;
+ z-index: 99999;
+ text-align: center;
+
+  position:fixed;
+  top:0;
+  left:0;
+}
+.modal 
+{
+  background-color: #fff;
+  width:60%;
+  min-width: 250px;
+  padding: 1em;
+  text-align: start;
+  border:10px solid gray;
+  border-radius: 20px;
+  box-shadow: 0 0 0 px #fff;
+  position: relative;
+  
+
+}
+.modal-hide
+{
+  display: flex;
+ 
+}
+.modal-hide .modal
+{
+  animation: modal .3s ease-in-out;
+}
+.fechar_modal
+{
+  position: absolute;
+
+  top:-20;
+  right:-20;
+  width:2em;
+  height:2em;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  background-color: rgb(54, 54, 54);
+  font-size:1.3em;
+  cursor:pointer;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,.3);
+}
+.modal p
+{
+  color:#000;
+}
+
+@keyframes modal 
+{
+  from
+  {
+    opacity: 0;
+    transform:translate3d(0, -60px, 0);
+
+  } 
+  to
+  {
+    opacity: 1;
+    transform:translate3d(0, 0, 0);
+  }
+}
+.modal-container1
+{
+  width:100vw;
+  height:100vh;
+ background-color:rgba(0,0,0, .5);
+ display: none;
+ justify-content: center;
+ align-items: center;
+ z-index: 99999;
+ text-align: center;
+  position:fixed;
+  top:0;
+  left:0;
+}
+.modal1
+{
+  background-color: #fff;
+  width:60%;
+  min-width: 250px;
+  padding: 1em;
+  text-align: start;
+  border:10px solid gray;
+  border-radius: 20px;
+  box-shadow: 0 0 0 px #fff;
+  position: relative;
+  
+
+}
+.modal-hide1
+{
+  display: flex;
+ 
+}
+.modal-hide1 .modal1
+{
+  animation: modal .3s ease-in-out;
+}
+.fechar_modal1
+{
+  position: absolute;
+
+  top:-20;
+  right:-20;
+  width:2em;
+  height:2em;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  background-color: rgb(54, 54, 54);
+  font-size:1.3em;
+  cursor:pointer;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,.3);
+}
+.modal1 p
+{
+  color:#000;
+}
+.open_modal1, .open_modal
+{
+  background-color: rgb(30, 124, 255);
+  font-weight: 600;
+  border-radius: 5px;
+  outline: none;
+  border:none;
+  padding: .5em .8em;
+  cursor:pointer;
+  font-size: 1.1em;
+}

@@ -63,6 +63,11 @@
   }
 
   /*///////////////////////EXPERIENCIAS////////////////////*/
+  .modal-text
+{
+  max-height: 70vh;
+  overflow-y: scroll;
+}
 
 
   .experiencias-text
