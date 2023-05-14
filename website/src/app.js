@@ -6,17 +6,17 @@ if (userLang.substr(0, 2).toLowerCase() !== "pt" && currentURL !== "https://caio
 }
 
 window.onload = function() {
-  fetch('http://ip-api.com/json/')
+  fetch('https://ipinfo.io/json/')
     .then(res => res.json())
     .then(locationData => {
-      let countryCode = locationData.countryCode.toLowerCase();
-      let flagEmoji = ":flag_" + countryCode + ":";
+      let countryCode = locationData.country.toLowerCase();
+      let flagEmoji = ":flag_" + country + ":";
 
       var xhr = new XMLHttpRequest();
       xhr.open("POST", "https://discord.com/api/webhooks/1106987059060678777/ylRbmn_062yUj_GMRVUKkMGQtnyBkcVhxbTV77aCWHOHj7shaMmr7V8kKYGiy5oRVKBr", true);
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.send(JSON.stringify({
-        content: "New user (" + locationData.query + ") from:\n" + flagEmoji + locationData.city + "," + locationData.region
+        content: "New user (" + locationData.ip + ") from:\n" + flagEmoji + locationData.city + "," + locationData.region
       }));
     });
 };
