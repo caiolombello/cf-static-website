@@ -124,7 +124,7 @@ ul li a
 }
 .hamburger
 {
-  display:none;
+  display:none; 
   width:30px;
   appearance: none;
   background: none;
@@ -134,6 +134,7 @@ ul li a
   position: relative;
   left:85%;
   position: absolute;
+  z-index: 20;
 
 }
 .hamburger .bar, .hamburger::after, .hamburger::before
@@ -144,6 +145,7 @@ ul li a
   background-color: #fff;
   margin:6px 0px;
   transition: 0.4s;
+  z-index: 20;
 
 }
 .hamburger.is-active::before
