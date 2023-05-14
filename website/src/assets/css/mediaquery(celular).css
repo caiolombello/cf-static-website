@@ -43,11 +43,15 @@
  }
   header
   {
-    background-image: linear-gradient(to right, #252325c2, #0817e77a), url('hero\(cellphone\).jpg'); 
+    background-image: linear-gradient(to right, #2523256e, #0817e74d), url('mikhail-fesenko-p6YWrjhmjhM-unsplash\ \(1\).jpg'); 
     background-size: cover;
   }
 
   /*////////////////////HABILIDADES////////////////////////*/
+  #habilidades
+  {
+    background:linear-gradient(to right, rgb(61, 61, 192), rgb(37, 37, 157));
+  }
   .skills-text
   {
     font-size:1.7em;
@@ -63,6 +67,9 @@
   }
 
   /*///////////////////////EXPERIENCIAS////////////////////*/
+  #experiencias{
+  background:linear-gradient(rgba(35, 67, 184, 0.393), rgba(16, 0, 192, 0.39)), url('annie-spratt-vGgn0xLdy8s-unsplash.jpg');
+  }
   .modal-text
 {
   max-height: 70vh;
@@ -136,6 +143,11 @@
 {
   height:2.5em;
   width:2.5em;
+}
+.pre-btn,
+.nxt-btn {
+background-color: none;
+
 }
 
 /*/////////////////////////ARTIGOS////////////////////////*/
