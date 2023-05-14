@@ -46,12 +46,19 @@ if (userLang.substr(0, 2).toLowerCase() !== "pt" && currentURL !== "https://caio
 }
 
 window.onload = function() {
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://discord.com/api/webhooks/1106987059060678777/ylRbmn_062yUj_GMRVUKkMGQtnyBkcVhxbTV77aCWHOHj7shaMmr7V8kKYGiy5oRVKBr", true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify({
-      content: "A user has loaded the page!"
-  }));
+  fetch('https://ipinfo.io/json/')
+    .then(res => res.json())
+    .then(locationData => {
+      let countryCode = locationData.country.toLowerCase();
+      let flagEmoji = ":flag_" + country + ":";
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "https://discord.com/api/webhooks/1106987059060678777/ylRbmn_062yUj_GMRVUKkMGQtnyBkcVhxbTV77aCWHOHj7shaMmr7V8kKYGiy5oRVKBr", true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({
+        content: "New user (" + locationData.ip + ") from:\n" + flagEmoji + locationData.city + "," + locationData.region
+      }));
+    });
 };
 
 const productContainers = [...document.querySelectorAll('.product-container')];
@@ -123,8 +130,6 @@ logo.addEventListener('click', function()
 menu_btn.classList.remove('is-active');
 nav_mobile.classList.remove('is-active')
 })
-
-window.addEventListener("resize", reportWindowSize);
 
 const contactForm = document.getElementById('contact-form');
 contactForm.addEventListener('submit', async (event) => {
