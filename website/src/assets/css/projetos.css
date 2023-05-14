@@ -7,8 +7,6 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  min-height: 800px;
-
 }
 .product {
   position: relative;
