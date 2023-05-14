@@ -2,7 +2,7 @@
 #experiencias
 {display: flex;
   flex-direction: column;
-  height:100%;
+  height:120%;
   width:100%;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,14 @@ margin-top: 60px;
 
 }
 
-  
+
+
+  .experiencias-ver-mais
+  {
+    color:#000;
+    font-weight: 600;
+    font-size: 1.2em;
+  }
 
 .timeline
 {
@@ -34,6 +41,7 @@ margin-top: 60px;
   max-width: 1200px;
   margin-top:25px;
 }
+
 .experiencias-container
 {
   padding:10px 50px;
@@ -79,7 +87,7 @@ left:50%;
   background:#fff;
   position: relative;
   border-radius: 6px;
-  font-size:15px;
+  font-size:.8em;
   
   
 }
@@ -97,6 +105,8 @@ left:50%;
 display:inline-block;
 margin-bottom: 15px;
 color:#000;
+font-size: 1.1em;
+font-weight: 600;
 }
 
 .experiencias-container img
