@@ -104,18 +104,13 @@ color:#111111;
 {
   width:40%;
 }
-/*Porcentagem das Habilidades(Helm) */
-.skill-per.helm
-{
-  width:50%;
-}
 /*Porcentagem das Habilidades(Docker) */
 .skill-per.docker
 {
   width:75%;
 }
-/*Porcentagem das Habilidades(Pipelines) */
-.skill-per.pipelines
+/*Porcentagem das Habilidades(CI/CD) */
+.skill-per.cicd
 {
   width:80%;
 }
