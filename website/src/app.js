@@ -91,8 +91,6 @@ menu_btn.classList.remove('is-active');
 nav_mobile.classList.remove('is-active')
 })
 
-window.addEventListener("resize", reportWindowSize);
-
 const contactForm = document.getElementById('contact-form');
 contactForm.addEventListener('submit', async (event) => {
   event.preventDefault();
