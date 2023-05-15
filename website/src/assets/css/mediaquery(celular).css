@@ -67,9 +67,7 @@
   }
 
   /*///////////////////////EXPERIENCIAS////////////////////*/
-  #experiencias{
-  background:linear-gradient(rgba(35, 67, 184, 0.393), rgba(16, 0, 192, 0.39)), url('annie-spratt-vGgn0xLdy8s-unsplash.jpg');
-  }
+
   .modal-text
 {
   max-height: 70vh;
