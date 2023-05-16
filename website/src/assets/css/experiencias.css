@@ -8,6 +8,7 @@
   align-items: center;
   background:black;
   background:linear-gradient(rgba(0, 0, 255, 0.425), rgba(16, 0, 192, 0.39)), url('experiencias\(certo\).jpg');
+  background-position-x: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: center;

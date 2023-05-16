@@ -118,44 +118,16 @@ window.addEventListener('resize', removeActiveClass);
 
 
 nav_links.forEach(function (link) {
-  link.addEventListener('click', function () {
-    menu_btn.classList.remove('is-active');
+  link.addEventListener('click', function (event) {
+    event.stopPropagation();
+    hamburger.classList.remove('is-active');
     nav_mobile.classList.remove('is-active');
   });
 });
-logo.addEventListener('click', function()
+
+logo.addEventListener('click', function(event)
 {
-menu_btn.classList.remove('is-active');
+event.stopPropagation();
+hamburger.classList.remove('is-active');
 nav_mobile.classList.remove('is-active')
-})
-
-const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', async (event) => {
-  event.preventDefault();
-
-  const formData = new FormData(event.target);
-  const formJSON = Object.fromEntries(formData.entries());
-
-  try {
-    const response = await fetch('https://formspree.io/f/meqwnard', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify(formJSON),
-    });
-
-    if (response.ok) {
-      alert('Mensagem enviada com sucesso!');
-      contactForm.reset();
-    } else {
-      alert('Ocorreu um erro ao enviar a mensagem. Tente novamente.');
-    }
-  } catch (error) {
-    console.error('Erro ao enviar o formulário:', error);
-    alert('Ocorreu um erro ao enviar a mensagem. Tente novamente.');
-  }
 });
-
-

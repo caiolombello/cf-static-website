@@ -65,6 +65,10 @@
   {
     height: 62%;
   }
+  .certificados
+  {
+    flex-direction: column;
+  }
 
   /*///////////////////////EXPERIENCIAS////////////////////*/
 
